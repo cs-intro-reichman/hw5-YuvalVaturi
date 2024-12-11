@@ -154,5 +154,5 @@ public class MyString {
         // Insert the character at the random index
         String result = str.substring(0, randomIndex) + ch + str.substring(randomIndex);
         return result;
-    }
+    } //
 }
