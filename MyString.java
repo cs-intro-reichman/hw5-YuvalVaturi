@@ -7,23 +7,20 @@ public class MyString {
         System.out.println(countChar(hello, 'h'));
         System.out.println(countChar(hello, 'l'));
         System.out.println(countChar(hello, 'z'));
-        System.out.println(subsetOf("c","space")); //returns true
+        System.out.println(subsetOf("c", "space")); // returns true
 
         System.out.println(spacedString(hello));
         //// Put your other tests here.
         /// java MyString.java
         System.out.println(countChar(hello, 'L'));
-        System.out.println(subsetOf("sap","space"));// returns true
-        System.out.println(subsetOf("spa","space")); //returns true
-        System.out.println(subsetOf("pass","space")); //returns false
-        System.out.println(spacedString("Spaced"));
-        System.out.println(spacedString("hello"));
-        System.out.println(randomStringOfLetters(3));
-        System.out.println(randomStringOfLetters(7));
-
-
-
-
+        System.out.println(subsetOf("sap", "space"));// returns true
+        System.out.println(subsetOf("spa", "space")); // returns true
+        System.out.println(subsetOf("pass", "space")); // returns false
+        System.out.println(spacedString("Spaced")); // S p a c e d
+        System.out.println(spacedString("hello")); // h e l l o
+        System.out.println(randomStringOfLetters(3)); // rand
+        System.out.println(randomStringOfLetters(7)); // rand
+        System.out.println(remove("committee", "meet")); // comit
 
     }
 
@@ -94,7 +91,7 @@ public class MyString {
      * @return a string consisting of the characters of str, separated by spaces.
      */
     public static String spacedString(String str) {
-        StringBuilder spaced = new StringBuilder(); 
+        StringBuilder spaced = new StringBuilder();
         int i = 0;
         for (; i < str.length() - 1; i++) {
             spaced.append(str.charAt(i));
@@ -116,7 +113,7 @@ public class MyString {
      * @return a randomly generated string, consisting of 'n' lowercase letters
      */
     public static String randomStringOfLetters(int n) {
-        StringBuilder randStr = new StringBuilder(); 
+        StringBuilder randStr = new StringBuilder();
         for (int i = 0; i < n; i++) {
             randStr.append((char) ((Math.random() * 26) + 'a'));
         }
@@ -132,11 +129,24 @@ public class MyString {
      * @param str1 - a string
      * @param str2 - a string
      * @return a string consisting of str1 minus all the characters of str2
+     * Example: remove("meet","committee") returns "comit"
      */
     public static String remove(String str1, String str2) {
-        //// Replace the following statement with your code
-        return null;
-    }
+        
+            int index = 0;
+    
+            for (int i = 0; i < str2.length(); i++) {
+                index = str1.indexOf(str2.charAt(i));
+    
+                if(index >= 0) {
+                    str1 = str1.substring(0, index) + str1.substring(index + 1);
+                }
+                
+            }
+    
+            return str1;
+        }
+  
 
     /**
      * Returns a string consisting of the given string, with the given
@@ -154,5 +164,5 @@ public class MyString {
         // Insert the character at the random index
         String result = str.substring(0, randomIndex) + ch + str.substring(randomIndex);
         return result;
-    } //''
+    } // ''
 }
