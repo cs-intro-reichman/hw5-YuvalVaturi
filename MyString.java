@@ -4,23 +4,25 @@
 public class MyString {
     public static void main(String args[]) {
         String hello = "hello";
-        System.out.println(countChar(hello, 'h'));
-        System.out.println(countChar(hello, 'l'));
-        System.out.println(countChar(hello, 'z'));
-        System.out.println(subsetOf("c", "space")); // returns true
+        // System.out.println(countChar(hello, 'h'));
+        // System.out.println(countChar(hello, 'l'));
+        // System.out.println(countChar(hello, 'z'));
+        // System.out.println(subsetOf("c", "space")); // returns true
 
         System.out.println(spacedString(hello));
         //// Put your other tests here.
         /// java MyString.java
-        System.out.println(countChar(hello, 'L'));
-        System.out.println(subsetOf("sap", "space"));// returns true
-        System.out.println(subsetOf("spa", "space")); // returns true
-        System.out.println(subsetOf("pass", "space")); // returns false
-        System.out.println(spacedString("Spaced")); // S p a c e d
-        System.out.println(spacedString("hello")); // h e l l o
-        System.out.println(randomStringOfLetters(3)); // rand
-        System.out.println(randomStringOfLetters(7)); // rand
-        System.out.println(remove("committee", "meet")); // comit
+        // System.out.println(countChar(hello, 'L'));
+        // System.out.println(subsetOf("sap", "space"));// returns true
+        // System.out.println(subsetOf("spa", "space")); // returns true
+        // System.out.println(subsetOf("pass", "space")); // returns false
+        System.out.println(subsetOf("quiz", "runi")); // returns true
+
+        // System.out.println(spacedString("Spaced")); // S p a c e d
+        // System.out.println(spacedString("hello")); // h e l l o
+        // System.out.println(randomStringOfLetters(3)); // rand
+        // System.out.println(randomStringOfLetters(7)); // rand
+        // System.out.println(remove("committee", "meet")); // comit
 
     }
 
@@ -57,28 +59,18 @@ public class MyString {
      * @return true is str1 is a subset of str2, false otherwise
      */
     public static boolean subsetOf(String str1, String str2) {
-        if (str1.isEmpty()) {
-            return true;
-        }
-
-        if (str1.length() > str2.length()) {
-            return false;
-        }
-        boolean sub = false;
-
+        int charAtIndex = 0;
         for (int i = 0; i < str1.length(); i++) {
-            for (int j = 0; j < str2.length(); j++) {
-                if (str1.charAt(i) == str2.charAt(j)) {
-                    if (countChar(str1, str1.charAt(i)) <= countChar(str2, str2.charAt(i))) {
-                        sub = true;
-                    } else {
-                        sub = false;
-                    }
-                }
+            charAtIndex = str2.indexOf(str1.charAt(i));
+            if (charAtIndex == -1) {
+                return false;
             }
-        }
 
-        return sub;
+            str2 = str2.substring(0, charAtIndex) + str2.substring(charAtIndex + 1);
+        }
+        
+
+        return true;
     }
 
     /**
