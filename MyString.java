@@ -92,6 +92,9 @@ public class MyString {
      */
     public static String spacedString(String str) {
         StringBuilder spaced = new StringBuilder();
+        if (str.isEmpty()) {
+            return ""; // Return an empty string for empty input
+        }
         int i = 0;
         for (; i < str.length() - 1; i++) {
             spaced.append(str.charAt(i));
