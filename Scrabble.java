@@ -75,9 +75,9 @@ public class Scrabble {
 			score += 1000;
 		}
 		for (int i = 0; i < word.length(); i++) {
-			score += SCRABBLE_LETTER_VALUES[word.charAt(i) - 'a'];
+			score += SCRABBLE_LETTER_VALUES[(int) (word.charAt(i)) - 97];
 		}
-		score *= word.length();
+		score = score*word.length();
 		return score;
 	}
 
@@ -102,7 +102,11 @@ public class Scrabble {
 			System.out.println("Enter a word, or '.' to finish playing this hand:");
 
 			String input = in.readString();
-			if (input == ".") {
+			if (input.equals(".")) {
+				break;
+			}
+			if (in.isEmpty()) {
+				System.out.println("No input available. Ending hand.");
 				break;
 			}
 
