@@ -113,9 +113,11 @@ public class Scrabble {
 			// }
 
 			if (MyString.subsetOf(input, hand)) {
+
 				if (!isWordInDictionary(input)) {
 					System.out.println("No such word in the dictionary. Try again.");
 				} else {
+
 					// 1. The letters in the word are removed from the hand, which becomes smaller.
 					hand = MyString.remove(hand, input);
 					// 2. The user gets the Scrabble points of the entered word.
@@ -125,6 +127,7 @@ public class Scrabble {
 				}
 
 			}
+			else System.out.println("Invalid word. Try again.");
 
 		}
 		if (hand.length() == 0) {
