@@ -107,10 +107,10 @@ public class Scrabble {
 			if (input.equals(".")) {
 				break;
 			}
-			if (in.isEmpty()) {
-				System.out.println("No input available. Ending hand.");
-				break;
-			}
+			// if (in.isEmpty()) {
+			// 	System.out.println("No input available. Ending hand.");
+			// 	break;
+			// }
 
 			if (MyString.subsetOf(input, hand)) {
 				if (!isWordInDictionary(input)) {
